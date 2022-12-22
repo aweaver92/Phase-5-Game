@@ -25,17 +25,36 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Panic of the Apes</title>
-  <!-- <canvas></canvas> -->
-  <!-- <script src="../gameData/collisions.js"></script>
-  <script src="../src/classes.js"></script>
-  <script src="../src/components/Game.js"></script> -->
-  <!-- <script src="../js/phaser.min.js"></script>
-  <script src="../js/phaser-plugin-isometric.min.js"></script> -->
+
+  <!-- <div style="background-color: white;
+  width:200px;
+  height: 200;
+  position: absolute;
+  bottom:0;"></div> -->
+  <!-- <script src="./gameData/collisions.js"></script>
+  <script src="classes.js"></script>
+  <script src="Game.js"></script> -->
+  <!-- <script src="js/phaser.min.js"></script>
+  <script src="js/phaser-plugin-isometric.min.js"></script> -->
 
   </head>
   <body>
     <div id="root"></div>
-
+    <div style="display: inline-block; position:relative">
+      <div id="overlappingDiv"
+      style="
+          background-color: black;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          opacity: 0;
+          pointer-events: none;
+      "
+      ></div>
+  </div>
+    <div><canvas></canvas></div>
   </body>
 
 </html>

@@ -45,7 +45,16 @@ function App() {
       <h3>Welcome {username}</h3>
       <Navbar/>
       </header>
-      {showSplash && <Splash
+      {
+      showSplash ? <Splash
+      username = {username}
+          addName = {addName}
+      /> : <LobbyPage
+      username = {username}
+      addName = {addName}
+      />
+      }
+      {/* {showSplash && <Splash
           username = {username}
           addName = {addName}
         />
@@ -53,7 +62,7 @@ function App() {
       {!showSplash && <LobbyPage
         username = {username}
         addName = {addName}
-      />}
+      />} */}
     </div>
   );
 }

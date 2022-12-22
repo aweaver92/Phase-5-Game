@@ -6,6 +6,7 @@ import GameContainer from './GameContainer';
 function LobbyPage(props) {
     let [username, setName] = useState('')
     let [showSplash, setShowSplash] = useState(true)
+    let [showGameContainer, setShowGameContainer] = useState(false)
 
     function addName (event, newName) {
       event.preventDefault()
@@ -37,8 +38,8 @@ function LobbyPage(props) {
     //*** TIMER STOP */
 
     function startBtn() {
-        const url = 'http://127.0.0.1:5500/game.html';
-        window.open(url, '_blank');
+        // const url = 'http://127.0.0.1:5500/game.html';
+        // window.open(url, '_blank');
         document.querySelector('.hideClick').classList.add('hidden');
         document.querySelector('.sidebar').classList.add('hidden');
         document.querySelector('.timer').classList.remove('hidden');
@@ -65,6 +66,10 @@ function LobbyPage(props) {
       document.querySelector('.filter-blue').classList.add('grey');
       document.querySelector('.filter-blue').classList.remove('filter-blue');
       }
+
+      function renderGameContainer() {
+        setShowGameContainer(true)
+        }
 
       //*** Inventory START ***
     //set state for Inventory
@@ -115,11 +120,22 @@ function LobbyPage(props) {
             <button onClick={ () => {
             start();
             startBtn();
+            renderGameContainer();
             }}>Start Match</button>
         </div>
             <div className='gameContainer'>
-            <GameContainer
-            username = {username}/>
+            {showGameContainer ? <GameContainer
+            username = {username}/> : null}
+{/*
+{
+      showSplash ? <Splash
+      username = {username}
+          addName = {addName}
+      /> : <LobbyPage
+      username = {username}
+      addName = {addName}
+      />
+      } */}
             </div>
     </div>
 )}

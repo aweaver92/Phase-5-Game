@@ -24,7 +24,9 @@ code {
 form {
   padding: 0 100px 100px 100px;
 }
-
+.hide {
+  display: none;
+}
 .form input[type="text"] {
   font: 2em sans-serif;
   text-align: center;
