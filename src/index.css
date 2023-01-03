@@ -1,0 +1,262 @@
+h1 {
+  font-family: 'Rock Salt', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    font-size: 2.6em;
+    color: #ad0029;
+    margin-top:  10px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Rock Salt', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+form {
+  padding: 0 100px 100px 100px;
+}
+
+.form input[type="text"] {
+  font: 2em sans-serif;
+  text-align: center;
+  border: 3px solid black;
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+
+.form input[type="text"]:hover {
+  font: 2em sans-serif;
+  text-align: center;
+  border: 3px solid rgb(128, 0, 0);
+  border-radius: 10px;
+}
+
+.splashContainer {
+  width: 1200px;
+  border: 4px solid black;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.hideClick  {
+  display: block;
+}
+.hidden {
+  display: none;
+}
+
+.timer {
+  color: #ad0029;
+  font-weight: 600;
+  margin-top: -300px;
+}
+
+.signForm {
+  margin-top:15%;
+}
+
+button, .button {
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 1.5em;
+  color:#000;
+  border-radius: 10px;
+  border: 4px solid black;
+  margin: 10px 50px;
+  padding: 10px;
+  color: #d7d7d7;
+  background-color: #ad0029
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Orbitron';
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+
+a:hover {
+  color: #f8993a;
+  text-decoration: none;
+  font-family: 'Orbitron';
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+
+.Game {
+  height: 1400px;
+  width: 100vw;
+}
+
+.navlink {
+  padding: 0 40px 0 40px;
+}
+
+
+.iframe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1100px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Rock Salt', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body canvas {
+  max-height: 900px;
+  margin-left: 120px;
+}
+
+canvas#GameContainer {
+  display: none;
+}
+
+
+.navbar {
+  background-color: #323c39;
+  margin: -16px 0 10px 0;
+}
+
+button:hover, .button:hover {
+  color: white;
+}
+
+.apeSelector:hover {
+  border: 4px solid #f8993a;
+  width: 200px;
+}
+
+.grey {
+  filter: grayscale(100%);
+}
+
+.filter-green {
+  filter: hue-rotate(130deg) contrast(170%);;
+}
+
+.filter-pink {
+  filter: hue-rotate(-70deg) contrast(150%);;
+}
+
+.filter-blue {
+  filter: hue-rotate(-120deg) contrast(200%);;
+}
+
+.playersBox {
+  background-color: #cbe7f9;
+  margin: 10px 10px;
+  padding: 10px;
+  border: 4px solid black;
+  width: 1576px;
+  display: inline-block;
+}
+
+.bg-main {
+  width: 100%;
+  background-color: #dc8ecc;
+}
+
+.white {
+  color: #ffffff;
+}
+
+.ul {
+  text-decoration: underline white;
+}
+
+.bar {
+  border: 3px solid black;
+  border-radius: 5px;
+  background-color: #6e6e6e;
+  margin: 0 -6;
+  margin-right: -10px;
+  padding: 5px 0;
+}
+
+.barFilled {
+  border: 3px solid black;
+  padding: 5px;
+  margin: 0 -6;
+  margin-right: -10px;
+  background-color:#ac3232;
+}
+
+.status-icon {
+  width: 50px;
+  margin: 10px 10px 0 0;
+  align-content: center;
+}
+
+.link {
+  color: #56a1bf;
+}
+
+.main-content {
+  max-width: 1600px ;
+  padding: 20px 0 60px 0;
+  margin: 0 auto;
+  border: 4px solid black;
+
+  background-color: #56a1bf;
+}
+
+.game-content {
+  max-width: 1800px ;
+  padding: 20px 0 20px 0;
+  margin: 0 auto;
+  border: 4px solid black;
+  background-color: #60adcb;
+}
+
+
+.center {
+  align-content: center;
+}
+
+.happybars {
+  align-content: center;
+}
+
+.hungerbars {
+  align-content: center;
+}
+
+.isHidden {
+  visibility: hidden;
+}
+.isRemoved {
+  display: none;
+}
+
+.space {
+  margin: 100px 0 0 0;
+}
+
+#splashBtn {
+  margin: 10px;
+}
+
+
+#splashImg {
+  padding-top: 50px;
+  width: 350px;
+}
+
