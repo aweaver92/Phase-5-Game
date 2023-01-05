@@ -83,6 +83,9 @@ function SignIn(props) {
 
   return (
     <div className='signForm'>
+      <h3>Sign in here. Or don't. I don't care what you do.</h3>
+      <br/>
+      <br/>
       <form onSubmit={handleSubmit}>
         {error && <p>{error}</p>}
         <label>
@@ -93,7 +96,8 @@ function SignIn(props) {
             onChange={(event) => setEmail(event.target.value)}
           />
         </label>
-        <br />
+        <br/>
+        <br/>
         <label>
           Password:
           <input
@@ -104,7 +108,8 @@ function SignIn(props) {
         </label>
         <br />
         <button type="submit" >Sign In</button>
-        <p>Don't have an account? <Link className="link" to="/sign-up">Sign Up!</Link></p>
+        <br />
+        <p>Don't have an account? <Link className="link" to="/sign-up">Sign Up & Earn In-Game Rewards!</Link></p>
       </form>
     </div>
   );

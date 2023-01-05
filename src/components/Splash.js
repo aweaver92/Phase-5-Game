@@ -8,14 +8,17 @@ export default function Splash(props){
         console.log(props.username, "username from useEffect");
       }, [props.username]);
 
+    const handleSubmit = (event) => {
+    event.preventDefault();
+    }
     return(
     <div className="main-content">
         <div className="splashContainer">
-        <img id="splashImg" src="images/splash_sfw.jpg" />
+        <img id="splashImg" src="images/Splash-Ape.gif" />
             <h1>PANIC OF THE APES</h1>
             <div className="form">
                 {/* <form onSubmit={(event) => props.setUsername(event, props.username)}> */}
-                <form>
+                <form onSubmit={handleSubmit}>
                     <input onChange={(e) => props.setUsername(e.target.value)} id="nameField" type="text" value={props.username} placeholder="INSERT USERNAME" />
                     <div>
                     </div>

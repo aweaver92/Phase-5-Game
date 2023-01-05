@@ -1,4 +1,3 @@
-
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
@@ -40,8 +39,19 @@ playerDownRightImage.src = '../../img/characters/seWalk.png'
 const playerDownLeftImage = new Image()
 playerDownLeftImage.src = '../../img/characters/swWalk.png'
 
-// const banana = game.add.sprite(-2100,
-//     -20, '../../img/characters/banana.png');
+const playerDodgeRightImage = new Image()
+playerDodgeRightImage.src = '../../img/characters/Dodge-Right.png'
+
+const menuImage = new Image()
+menuImage.src = '../../img/menu.jpg'
+
+const unmutedMusicImage = new Image()
+unmutedMusicImage.src = '../../img/unmuted.jpg'
+
+
+
+// const banana = new Image()
+// banana.src = '../../img/characters/banana.png';
 
 const player = new Sprite({
   position: {
@@ -60,13 +70,34 @@ const player = new Sprite({
     upright: playerUpRightImage,
     upleft: playerUpLeftImage,
     downright: playerDownRightImage,
-    downleft: playerDownLeftImage
+    downleft: playerDownLeftImage,
+    dodgeright: playerDodgeRightImage,
+    menu: menuImage
   },
   username: ""
 })
-console.log(player.username)
+// const playerwide = new Sprite({
+//     position: {
+//       x: canvas.width / 2 - 500 / 4 / 2,
+//       y: canvas.height / 2 - 84 / 2
+//     },
+//     image: playerwidecanvas,
+//     frames: {
+//       max:10
+//     },
+//     sprites: {
+//       dodgeright: playerDodgeRightImage
+//     },
+//     username: ""
+//   })
 
-
+const pauseMenu = new Sprite({
+    position: {
+        x: -2100,
+        y: -20
+    },
+    image: menuImage
+})
 
 const background = new Sprite({
     position: {
@@ -85,6 +116,17 @@ const foreground = new Sprite({
     image: foregroundImage
 })
 
+const unmutedMusic = new Sprite({
+    position: {
+        x: -2000,
+        y: -20
+    },
+    image: unmutedMusicImage
+})
+unmutedMusic.draw()
+
+
+
 const keys = {
     w: {
         pressed: false
@@ -97,17 +139,74 @@ const keys = {
     },
     d: {
         pressed: false
+    },
+    e: {
+        pressed: false
+    },
+    q: {
+        pressed: false
+    },
+    z: {
+        pressed: false
     }
 }
 
 
-const movables = [background, foreground]
+const movables = [background, foreground, unmutedMusic]
+
+let isPaused = false;
+
+function pause() {
+  if (!isPaused) {
+    // create the image element
+    var img = document.createElement("img");
+    img.src = "../../img/menu.jpg";
+    img.style.display = "block";
+    img.style.margin = "auto";
+    img.style.position = "absolute";
+    img.style.top = "0";
+    img.style.bottom = "0";
+    img.style.left = "0";
+    img.style.right = "0";
+
+    // add the image to the body of the page
+    document.body.appendChild(img);
+
+    // add an event listener for the click event
+    img.addEventListener("click", function() {
+      // remove the image from the body of the page
+      document.body.removeChild(img);
+
+      // set the flag to false
+      isPaused = false;
+    });
+
+    // set the flag to true
+    isPaused = true;
+  } else {
+    // remove the image from the body of the page
+    document.body.removeChild(img);
+
+    // set the flag to false
+    isPaused = false;
+  }
+}
+
+// register the pause function as a keydown event handler for the q key
+window.addEventListener("keydown", function(event) {
+  if (event.code === "Escape") {
+    pause();
+  }
+});
+
 
 function animate() {
     window.requestAnimationFrame(animate)
     background.draw()
     player.draw()
     foreground.draw()
+    unmutedMusic.draw()
+
     player.moving = false
 
         //diagonal up directions
@@ -162,6 +261,13 @@ function animate() {
             movables.forEach((movable) => {
             movable.position.x -= 6})
         }
+        else if (keys.e.pressed && lastKey === 'e') {
+            player.moving = true
+            player.image = player.sprites.dodgeright
+            movables.forEach((movable) => {
+            movable.position.x -= 7})
+        }
+
 
         // diagonal into straight up/down movement transitions
         else if (keys.w.pressed && lastKey === 'd') {
@@ -189,7 +295,7 @@ function animate() {
             movable.position.y -= 6})
             }
 
-            // diagonal into straight left/right movement transitions
+        // diagonal into straight left/right movement transitions
         else if (keys.d.pressed && lastKey === 'w') {
             player.moving = true
             player.image = player.sprites.right
@@ -214,6 +320,8 @@ function animate() {
             movables.forEach((movable) => {
             movable.position.x += 6})
             }
+
+
     }
 animate()
 
@@ -239,6 +347,16 @@ window.addEventListener('keydown', (e) => {
         keys.d.pressed = true
         lastKey = 'd'
         break
+
+        case 'e':
+        keys.e.pressed = true
+        lastKey = 'e'
+        break
+
+        case 'q':
+        keys.q.pressed = true
+        lastKey = 'q'
+        break
     }
 })
 
@@ -259,20 +377,13 @@ window.addEventListener('keyup', (e) => {
         case 'd':
         keys.d.pressed = false
         break
+
+        case 'e':
+        keys.e.pressed = false
+        break
+
+        case 'q':
+        keys.q.pressed = false
+        break
     }
 })
-
-
-
-
-    // c.drawImage(
-    //     playerImage,
-    //     0,
-    //     0,
-    //     playerImage.width / 8,
-    //     playerImage.height,
-    //     canvas.width / 2 - playerImage.width /4 / 2,
-    //     canvas.height / 2 - playerImage.height / 2,
-    //     playerImage.width / 8,
-    //     playerImage.height
-    //     )

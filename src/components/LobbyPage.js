@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { useTimer } from 'use-timer';
 import GameContainer from './GameContainer';
 
@@ -9,14 +9,14 @@ function LobbyPage(props) {
 
     console.log(props.username, "username here")
     //*** TIMER START ***/
-    const { time, start, pause, reset, status } = useTimer();
-    //this function gets called every second
-    // useEffect(() => [time, console.log(time)])
-    //*** TIMER STOP */
+
+    const { time, start, pause, reset, status } = useTimer({
+      initialTime: 180,
+      timerType: 'DECREMENTAL',
+      endTime: 0,
+    });
 
     function startBtn() {
-        // const url = 'http://127.0.0.1:5500/src/components/game.html';
-        // window.open(url, '_blank');
         document.querySelector('.hideClick').classList.add('hidden');
         document.querySelector('.sidebar').classList.add('hidden');
         document.querySelector('.timer').classList.remove('hidden');
@@ -102,15 +102,15 @@ function LobbyPage(props) {
     <div>
             <div className="sidebar">
                 <div className="playersBox">
-                    <strong>PLAYERS:</strong><br/>
-                    <h3>{props.username}</h3>
+                    <strong>PLAYERS IN LOBBY:</strong><br/>
+                    <h3 className='blinker'>{props.username}</h3>
                     <h3>Awaiting Player 2</h3>
                     <h3>Awaiting Player 3</h3>
                     <h3>Awaiting Player 4</h3>
                 </div>
             </div>
             <div className="main-content">
-                <h3 className="white">Choose an Ape</h3>
+                <h3 className="white">Choose an Ape. Punk.</h3>
                 <img onClick={ () => {
             {apeSelected_default()}
             }} className="apeSelector filter-default" src="images/AK-Monkeh.gif"></img>
@@ -127,13 +127,12 @@ function LobbyPage(props) {
             <div className='hideClick'>
             <button onClick={ () => {
             sendUsername();
-            // addName();
             start();
             startBtn();
             renderGameContainer();
             }}>Start Match</button>
             <button onClick={apiFetch}>Tell Me a Joke</button><br/>
-            <h4 id='response-container'></h4>
+            <h5 id='response-container'></h5>
         </div>
             <div className='gameContainer'>
             {showGameContainer ? <GameContainer
