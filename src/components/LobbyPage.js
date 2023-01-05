@@ -100,6 +100,8 @@ function LobbyPage(props) {
 
     return(
     <div>
+      <div className="space">
+      </div>
             <div className="sidebar">
                 <div className="playersBox">
                     <strong>PLAYERS IN LOBBY:</strong><br/>
@@ -131,7 +133,7 @@ function LobbyPage(props) {
             startBtn();
             renderGameContainer();
             }}>Start Match</button>
-            <button onClick={apiFetch}>Tell Me a Joke</button><br/>
+            <button onClick={apiFetch}>Waiting? Tell a Joke</button><br/>
             <h5 id='response-container'></h5>
         </div>
             <div className='gameContainer'>

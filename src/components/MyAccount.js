@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 
-function MyAccount(props) {
+function MyAccount() {
 const [items, setItems] = useState([]);
 const [equippedItems, setEquippedItems] = useState([]);
 const baseUrl = "http://localhost:3000/";
@@ -32,9 +32,21 @@ setItems([...items, item]);
 return (
 <div className='myAccount'>
   <h2>My Account</h2>
+
+  <div className='right-column-1-3'>
   <h3>Unlocked Abilities:</h3>
-  <div><img className='abilities' src="images/dodge.gif" /></div>
-  <p>Dodge</p>
+    <span className='ability'>
+      <h5>Dodge</h5>
+      <img className='abilities' src="images/dodge.gif" /><p>Press "e" to Dodge</p>
+    </span>
+    <span className='ability'>
+      <h5>Banana Bunch</h5>
+      <img className='abilities' src="images/banana_bunch.png" /><p>Start with 3 Bananas</p>
+    </span>
+
+  </div>
+  <br/>
+  <div className='left-column-2-3'>
   <h3>Unlocked Items:</h3>
   <h5><em>(Its dangerous to go alone, take one of these)</em></h5>
   <ul>
@@ -54,6 +66,7 @@ return (
     </li>
     ))}
   </ul>
+  </div>
 </div>
 );
 }

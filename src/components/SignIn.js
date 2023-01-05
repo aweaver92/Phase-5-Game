@@ -83,6 +83,7 @@ function SignIn(props) {
 
   return (
     <div className='signForm'>
+       <img id="splashImg" src="images/Splash-Ape.gif" />
       <h3>Sign in here. Or don't. I don't care what you do.</h3>
       <br/>
       <br/>

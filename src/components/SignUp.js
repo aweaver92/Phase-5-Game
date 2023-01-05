@@ -18,13 +18,11 @@ function SignUp() {
 const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Make sure passwords match
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
     }
 
-    // Send request to backend to create new user
     try {
       const response = await fetch(usersUrl, {
         method: 'POST',
@@ -33,13 +31,9 @@ const handleSubmit = async (event) => {
         },
         body: JSON.stringify({ email, password }),
       });
-
-      // Check if response is successful
       if (response.ok) {
-        // Redirect to login page
         setRedirect(true);
       } else {
-        // Extract error message from response
         const { message } = await response.json();
         setError(message);
       }
